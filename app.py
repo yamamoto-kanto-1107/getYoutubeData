@@ -1,6 +1,7 @@
 from googleapiclient.discovery import build
 import pandas as pd
 import re
+import datetime
 
 def extract_sns_url(description):
     x=''
@@ -120,6 +121,9 @@ def output_youtube_detail(csv_value,category_value,count_value):
     print(len(insta))
     print(len(x))
 
+    today = datetime.datetime.today()
+    print(today.date())
+
     df = pd.DataFrame(data_list)
-    df.to_csv(f'{csv_value}/sample.csv')
+    df.to_csv(f'{csv_value}/{today.date()}.csv')
     df.to_csv('/Users/kantoyamamoto/Desktop/sample.csv')
